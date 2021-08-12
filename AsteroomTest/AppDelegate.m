@@ -6,6 +6,9 @@
 //
 
 #import "AppDelegate.h"
+#import <CleverTapSDK/CleverTap.h>
+#import "SEGCleverTapIntegrationFactory.h"
+#import <CleverTapSDK/CleverTapInstanceConfig.h>
 
 @interface AppDelegate ()
 
@@ -13,8 +16,25 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        [CleverTap setDebugLevel:CleverTapLogDebug];
+        
+        SEGAnalyticsConfiguration *configuration = [SEGAnalyticsConfiguration configurationWithWriteKey:@"dcUHEYgeOcQOTWXWXquMCW0pws0KHuE7"];
+
+        [configuration use:[SEGCleverTapIntegrationFactory instance]];
+        
+        // Enable this to record certain application events automatically!
+        configuration.trackApplicationLifecycleEvents = YES;
+        
+        // Enable this to record screen views automatically!
+        configuration.recordScreenViews = YES;
+        
+        // Automatic Push Notification Tracking
+        configuration.trackPushNotifications = YES;
+        [SEGAnalytics setupWithConfiguration:configuration];
+
+        [[CleverTap sharedInstance] enableDeviceNetworkInfoReporting:YES];
+
     // Override point for customization after application launch.
     return YES;
 }

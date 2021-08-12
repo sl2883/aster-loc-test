@@ -14,6 +14,7 @@
 		1BB1BB0926C5B8DD000AA5A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB1BB0826C5B8DD000AA5A8 /* Assets.xcassets */; };
 		1BB1BB0C26C5B8DE000AA5A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB1BB0A26C5B8DE000AA5A8 /* LaunchScreen.storyboard */; };
 		1BB1BB0F26C5B8DE000AA5A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1BB0E26C5B8DE000AA5A8 /* main.m */; };
+		364E430800505C719917A929 /* Pods_AsteroomTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC91AEA27001B1616387D4F /* Pods_AsteroomTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,9 @@
 		1BB1BB0B26C5B8DE000AA5A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BB1BB0D26C5B8DE000AA5A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BB1BB0E26C5B8DE000AA5A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		300DE794BFFB04D221EB7F59 /* Pods-AsteroomTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsteroomTest.release.xcconfig"; path = "Target Support Files/Pods-AsteroomTest/Pods-AsteroomTest.release.xcconfig"; sourceTree = "<group>"; };
+		3FC91AEA27001B1616387D4F /* Pods_AsteroomTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsteroomTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		841E0E5D3248E7D74ADA2CF8 /* Pods-AsteroomTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsteroomTest.debug.xcconfig"; path = "Target Support Files/Pods-AsteroomTest/Pods-AsteroomTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364E430800505C719917A929 /* Pods_AsteroomTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +52,8 @@
 			children = (
 				1BB1BAFB26C5B8DA000AA5A8 /* AsteroomTest */,
 				1BB1BAFA26C5B8DA000AA5A8 /* Products */,
+				C3E8B5D45D831C3240F3F69D /* Pods */,
+				DD0EA7FDF06478982DE062A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +83,24 @@
 			path = AsteroomTest;
 			sourceTree = "<group>";
 		};
+		C3E8B5D45D831C3240F3F69D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				841E0E5D3248E7D74ADA2CF8 /* Pods-AsteroomTest.debug.xcconfig */,
+				300DE794BFFB04D221EB7F59 /* Pods-AsteroomTest.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DD0EA7FDF06478982DE062A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FC91AEA27001B1616387D4F /* Pods_AsteroomTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BB1BB1226C5B8DE000AA5A8 /* Build configuration list for PBXNativeTarget "AsteroomTest" */;
 			buildPhases = (
+				5D5D4E09316437A19212709C /* [CP] Check Pods Manifest.lock */,
 				1BB1BAF526C5B8DA000AA5A8 /* Sources */,
 				1BB1BAF626C5B8DA000AA5A8 /* Frameworks */,
 				1BB1BAF726C5B8DA000AA5A8 /* Resources */,
+				9719F972360B838E25F65CE3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +166,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D5D4E09316437A19212709C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AsteroomTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9719F972360B838E25F65CE3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AsteroomTest/Pods-AsteroomTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AsteroomTest/Pods-AsteroomTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AsteroomTest/Pods-AsteroomTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1BB1BAF526C5B8DA000AA5A8 /* Sources */ = {
@@ -288,6 +357,7 @@
 		};
 		1BB1BB1326C5B8DE000AA5A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 841E0E5D3248E7D74ADA2CF8 /* Pods-AsteroomTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -306,6 +376,7 @@
 		};
 		1BB1BB1426C5B8DE000AA5A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 300DE794BFFB04D221EB7F59 /* Pods-AsteroomTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
