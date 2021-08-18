@@ -17,10 +17,17 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+        [[NSNotificationCenter defaultCenter] addObserver:self
+            selector:@selector(profileInitialized:)
+            name:CleverTapProfileDidInitializeNotification
+            object:nil];
+
+    
         [CleverTap setDebugLevel:CleverTapLogDebug];
         
         SEGAnalyticsConfiguration *configuration = [SEGAnalyticsConfiguration configurationWithWriteKey:@"dcUHEYgeOcQOTWXWXquMCW0pws0KHuE7"];
-
+    
         [configuration use:[SEGCleverTapIntegrationFactory instance]];
         
         // Enable this to record certain application events automatically!
@@ -33,12 +40,16 @@
         configuration.trackPushNotifications = YES;
         [SEGAnalytics setupWithConfiguration:configuration];
 
-        [[CleverTap sharedInstance] enableDeviceNetworkInfoReporting:YES];
+        //[[CleverTap sharedInstance] enableDeviceNetworkInfoReporting:YES];
 
     // Override point for customization after application launch.
     return YES;
 }
 
+
+- (void) profileInitialized: (NSNotification *) notification {
+    [[CleverTap sharedInstance] enableDeviceNetworkInfoReporting:YES];
+}
 
 #pragma mark - UISceneSession lifecycle
 
